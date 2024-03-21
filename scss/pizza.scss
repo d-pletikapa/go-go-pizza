@@ -1,0 +1,21 @@
+@import '__normalize.scss';
+@import '__fonts.scss';
+@import '__styles.scss';
+
+.pizza {
+  padding: 24px 0;
+}
+
+.pizza__title {
+font-weight: 900;
+font-size: 28px;
+line-height: 1;
+color: var(--dark);
+margin-bottom: 24px;
+}
+.pizza__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140, 1fr));
+  gap: 12px;
+}
+

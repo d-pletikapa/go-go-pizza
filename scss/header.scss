@@ -1,0 +1,31 @@
+@import '__normalize.scss';
+@import '__fonts.scss';
+@import '__styles.scss';
+
+
+.header {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.header__logo {
+  width: 120px;
+}
+
+.header__cart {
+  color: var(--dark);
+  &:hover {
+    color: var(--orange);
+  }
+}
+
