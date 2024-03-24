@@ -1,0 +1,43 @@
+@import '__normalize.scss';
+@import '__fonts.scss';
+@import '__styles.scss';
+
+.pizza {
+  padding: 24px 0;
+  @include media-query('tablet') {
+   padding: 64px 0;
+  }
+
+}
+
+.pizza__title {
+font-weight: 900;
+font-size: 28px;
+line-height: 1;
+color: var(--dark);
+margin-bottom: 24px;
+@include media-query('tablet') {
+   font-size: 44px;
+}
+}
+.pizza__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  @include media-query('tablet') {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   gap: 16px;
+  }
+  @include media-query('desktop'){
+    gap: 20px;
+  }
+}
+.pizza__item {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.pizza__card {
+  flex-grow: 1;
+}
+

@@ -9,6 +9,19 @@
   background-image: linear-gradient(47deg, #eb8a14 0%, #ecd55a 100%);
   border-radius: 0 0 16px 16px;
   margin-bottom: 43px;
+  @include media-query('tablet') {
+    padding: 116px 0 90px; 
+    border-radius: 0 0 32px 32px;
+    margin-bottom: 60px;
+  }
+  @include media-query('laptop') {
+    padding: 126px 0 80px;
+    margin-bottom: 82px;
+  }
+  @include media-query('desktop') {
+    padding: 140px 0 100px;
+    margin-bottom: 87px;
+  }
 }
 
 .hero__container:after {
@@ -24,12 +37,37 @@
   background-image: url(../img/cheese-slice-of-pizza.png);
   background-size: contain;
   background-repeat: no-repeat;
+  @include media-query('tablet') {
+    margin-bottom: 60px;
+    right: calc(var(--offset-container) + 10px);
+  }
+  @include media-query('laptop') {
+    bottom: -82px;
+    right: calc(var(--offset-container) - 7px);
+    max-width: 566px;
+    max-height: 499px;
+  }
+  @include media-query('desktop') {
+    bottom: -87px;
+    right: calc(var(--offset-container) + 30px);
+    max-width: 670px;
+    max-height: 591px;
+  }
 }
 
 .hero__content {
   position: relative;
   max-width: 300px;
   z-index: 6;
+  @include media-query('tablet') {
+    max-width: 544px;
+  }
+  @include media-query('laptop') {
+    max-width: 544px;
+  }
+  @include media-query('desktop') {
+    max-width: 620px;
+  }
 }
 
 .hero__title {
@@ -39,6 +77,13 @@
   line-height: 1;
   color: var(--dark);
   margin-bottom: 12px;
+  @include media-query('tablet') {
+    font-size: 64px;
+    margin-bottom: 24px;
+  }
+  @include media-query('desktop') {
+    font-size: 80px;
+  }
 }
 
 .hero__tagline {
@@ -50,16 +95,24 @@
   background-repeat: no-repeat;
   background-position: left;
   padding-left: 32px;
+  @include media-query('tablet') {
+    font-size: 20px;
+    margin-bottom: 50px;
+  }
+  @include media-query('desktop') {
+    margin-bottom: 64px;
+  }
 }
 
 .hero__order {
   border-radius: 32px;
   padding: 8px 24px;
-  width: 109px;
-  height: 36px;
   background-color: var(--light);
   font-weight: 600;
   font-size: 14px;
   line-height: 1.4;
   color: var(--orange);
+  @include media-query('tablet') {
+    font-size: 20px;
+  }
 }

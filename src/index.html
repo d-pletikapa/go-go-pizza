@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Go GO Pizza! - Заказать вкусную пиццу домой</title>
   <link rel="stylesheet" href="./scss/index.scss">
+  <script type="module" src="./js/script.js"></script>
 </head>
 
 <body>
@@ -123,7 +124,7 @@
 
         <ul class="pizza__list">
           <li class="pizza__item">
-            <article class="card">
+            <article class="card pizza__card">
               <img class="card__img" src="img/pizza-margherita.png" alt="Маргарита">
               <div class="card__content">
                 <h3 class="card__title">Маргарита</h3>
@@ -157,30 +158,11 @@
             Ilina</a>
         </li>
         <li class="footer__developer">
-          <a class="footer__link" href="https://t.me/d3nis_pl" target="_blank" rel="noopener">Designer: Denis Pl</a>
+          <a class="footer__link" href="https://t.me/d3nis_pl" target="_blank" rel="noopener">Developer: Denis Pl.</a>
         </li>
       </ul>
     </div>
   </footer>
-<script>
-const toppingsButton = document.querySelector('.toppings__button');
-const toppings__List = document.querySelector('.toppings__list');
-
-toppingsButton.addEventListener('click', () => {
-  if (!toppings__List.classList.contains('.oppings__List--show')) {
-    toppings__List.add('toppings__list--show');
-    toppingsButton.add('toppings__button--active');
-    toppings__List.style.maxHeight = toppings__List.scrollHeight + 'px';
-  } else {
-    toppings__List.remove('toppings__list--show');
-    toppings__List.style.maxHeight = null;
-    setTimeout(() => {
-      toppingsButton.remove('toppings__button--active');
-    }, 300)
-  }
-})
-  
-</script>
 </body>
 
 </html>

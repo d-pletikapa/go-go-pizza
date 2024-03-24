@@ -1,6 +1,7 @@
 html {
   position: relative;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 *,
@@ -10,11 +11,11 @@ html {
 }
 
 :root {
-	--white: #fff;
-	--beige: #c1ab91;
-	--dark: #2c2826;
-	--orange: #ff8a00;
-	--light: #fbf3e8;
+  --white: #fff;
+  --beige: #c1ab91;
+  --dark: #2c2826;
+  --orange: #ff8a00;
+  --light: #fbf3e8;
 }
 
 body {
@@ -88,7 +89,26 @@ iframe {
   transform: scale(0);
 }
 
+// media
+@mixin media-query($breakpoint) {
+  @if $breakpoint =='tablet' {
+    @media (width >=620px) {
+      @content;
+    }
+  }
 
+  @else if $breakpoint =='laptop' {
+    @media (width >=860) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint =='desktop' {
+    @media (width >=1140px) and (width <=1440px) {
+      @content;
+    }
+  }
+}
 /*
 Пример контейнера
 
@@ -98,13 +118,23 @@ iframe {
 Чтобы контент не прижимался к краям экрана
 */
 
+
+
 .container {
   --offset-container: 14px;
   max-width: calc(var(--offset-container)* 2 + 1300px);
   padding: 0 var(--offset-container);
   margin: 0 auto;
+
+  @include media-query('tablet') {
+    --offset-container: 40px;
+  }
+  @include media-query('desktop') {
+    --offset-container: 70px;
+  }
 }
 
 // .svg-sprite {
 
 // }
+

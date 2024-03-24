@@ -4,11 +4,26 @@
 
 .toppings {
   padding: 24px 0;
+
+  @include media-query('tablet') {
+    padding-top: 32px 0;
+  }
 }
 
 .toppings__title {
   position: fixed;
   transform: scale(0);
+
+  @include media-query('laptop') {
+    position: static;
+    transform: none;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.4;
+    color: var(--dark);
+    margin-bottom: 16px;
+
+  }
 }
 
 .toppings__button {
@@ -19,6 +34,14 @@
   display: flex;
   gap: 4px;
   align-items: center;
+
+  @include media-query('tablet') {
+    font-size: 24px;
+  }
+
+  @include media-query('laptop') {
+    display: none;
+  }
 }
 
 .toppings__button:active .toppings__arrow {
@@ -37,9 +60,14 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height .3s ease;
+
+  @include media-query('laptop') {
+    display: flex;
+    max-height: none;
+  }
 }
 
-.toppings__list_show {
+.toppings__list--show {
   display: flex;
   //!TODO
 }
@@ -54,6 +82,9 @@
   color: var(--beige);
   border: 1px solid transparent;
 
+  @include media-query('tablet') {
+    font-size: 20px;
+  }
 }
 
 .toppings__checkbox {
@@ -71,4 +102,3 @@
   border-color: #b66200;
   color: var(--orange);
 }
-
