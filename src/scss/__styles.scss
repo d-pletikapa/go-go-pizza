@@ -15,8 +15,12 @@ html {
   --beige: #c1ab91;
   --dark: #2c2826;
   --orange: #ff8a00;
+  --orange-light: #ff9b25;
   --light: #fbf3e8;
+  --offset-container: 14px;
 }
+$dark: #2c2826;
+$white: #fff;
 
 body {
   position: relative;
@@ -119,9 +123,7 @@ iframe {
 */
 
 
-
 .container {
-  --offset-container: 14px;
   max-width: calc(var(--offset-container)* 2 + 1300px);
   padding: 0 var(--offset-container);
   margin: 0 auto;
@@ -133,6 +135,9 @@ iframe {
     --offset-container: 70px;
   }
 }
+
+
+
 
 // .svg-sprite {
 

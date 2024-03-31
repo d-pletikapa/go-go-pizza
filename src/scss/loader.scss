@@ -1,0 +1,33 @@
+@import "__normalize.scss";
+@import "__fonts.scss";
+@import "__styles.scss";
+
+.loader {
+  position: fixed;
+  inset: 0;
+  background: rgba($dark, 0.89);
+  z-index: 50;
+
+  &__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid var(--dark);
+    border-top-color: var(--orange);
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -3,26 +3,40 @@
 @import '__styles.scss';
 
 .hero {
-  position: relative;
-  padding-top: 80px;
-  padding-bottom: 212px;
   background-image: linear-gradient(47deg, #eb8a14 0%, #ecd55a 100%);
   border-radius: 0 0 16px 16px;
   margin-bottom: 43px;
   @include media-query('tablet') {
-    padding: 116px 0 90px; 
     border-radius: 0 0 32px 32px;
     margin-bottom: 60px;
   }
   @include media-query('laptop') {
-    padding: 126px 0 80px;
     margin-bottom: 82px;
   }
   @include media-query('desktop') {
-    padding: 140px 0 100px;
     margin-bottom: 87px;
   }
+  & &__container {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 212px;
+    @include media-query('tablet') {
+      padding-top: 116px;
+      padding-bottom: 90px;
+    }
+    @include media-query('laptop') {
+      padding-top: 126px;
+      padding-bottom: 80px;
+    }
+    @include media-query('desktop') {
+      padding-top: 140px;
+      padding-bottom: 100px;
+    }
+  }
 }
+
+
+
 
 .hero__container:after {
   content: '';

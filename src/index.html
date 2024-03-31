@@ -53,68 +53,9 @@
           </svg>
         </button>
 
-        <ul class="toppings__list">
-          <li class="toppings__item">
-            <input type="checkbox" id="1" class="toppings__checkbox" value="Твердый сыр" name="toppings">
-            <label for="1" class="toppings__label">Твердый сыр</label>
-            </label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="2" class="toppings__checkbox" value="Моцарелла" name="toppings">
-            <label for="2" class="toppings__label">Моцарелла</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="3" class="toppings__checkbox" value="Сыр с плесенью" name="toppings">
-            <label for="3" class="toppings__label">Сыр с плесенью</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="4" class="toppings__checkbox" value="Пепперони" name="toppings">
-            <label for="4" class="toppings__label">Пепперони</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="5" class="toppings__checkbox" value="Ветчина" name="toppings">
-            <label for="5" class="toppings__label">Ветчина</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="6" class="toppings__checkbox" value="Курица" name="toppings">
-            <label for="6" class="toppings__label">Курица</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="7" class="toppings__checkbox" value="Креветки" name="toppings">
-            <label for="7" class="toppings__label">Креветки</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="8" class="toppings__checkbox" value="Помидор" name="toppings">
-            <label for="8" class="toppings__label">Помидор</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="9" class="toppings__checkbox" value="Болгарский перец" name="toppings">
-            <label for="9" class="toppings__label">Болгарский перец</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="10" class="toppings__checkbox" value="Ананас" name="toppings">
-            <label for="10" class="toppings__label">Ананас</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="11" class="toppings__checkbox" value="Лук" name="toppings">
-            <label for="11" class="toppings__label">Лук</label>
-          </li>
-          <li class="toppings__item">
-
-            <input type="checkbox" id="12" class="toppings__checkbox" value="Грибы" name="toppings">
-            <label for="12" class="toppings__label">Грибы</label>
-          </li>
-        </ul>
+        <form class="toppings__form">
+          <ul class="toppings__list"></ul>
+        </form>
       </div>
     </section>
 
@@ -123,26 +64,6 @@
         <h2 class="pizza__title">Пицца</h2>
 
         <ul class="pizza__list">
-          <li class="pizza__item">
-            <article class="card pizza__card">
-              <img class="card__img" src="img/pizza-margherita.png" alt="Маргарита">
-              <div class="card__content">
-                <h3 class="card__title">Маргарита</h3>
-                <p class="card__info">
-                  <span class="card__price">
-                    480 ₽
-                  </span>
-                  <span>
-                    /
-                  </span>
-                  <span class="card__width">
-                    25 см
-                  </span>
-                </p>
-                <button class="card__add-to-cart">Выбрать</button>
-              </div>
-            </article>
-          </li>
         </ul>
       </div>
     </section>
@@ -163,6 +84,43 @@
       </ul>
     </div>
   </footer>
+  <div class="modal modal-pizza">
+    <div class="modal__main modal-pizza__main">
+      <img class="modal-pizza__img" src="./img/pizza-with-mushrooms.png" alt="С грибами">
+      <h2 class="modal-pizza__title"></h2>
+      <p class="modal-pizza__toppings">Грибы, сыр, томатный соус, лук, болгарский перец</p>
+      <p class="modal-pizza__info">
+        <span modal-pizza__price>490 ₽</span>
+        <span>/</span>
+        <span modal-pizza__current-size>25 см</span>
+      </p>
+      <form class="modal-pizza__form" action="">
+        <fieldset class="modal-pizza__fieldset">
+          <input class="modal-pizza__radio" id="thick" type="radio" name="crust" value="thick">Пышное тесто
+          <label class="modal-pizza__label" for="thick"></label>
+          <input class="modal-pizza__radio" id="thin" type="radio" name="crust" value="thin" checked>Тонкое тесто
+          <label class="modal-pizza__label" for="thin"></label>
+        </fieldset>
+        <fieldset class="modal-pizza__fieldset">
+          <input class="modal-pizza__radio" id="25" type="radio" name="size" value="25" checked>25 см
+          <label class="modal-pizza__label" for="25"></label>
+          <input class="modal-pizza__radio" id="30" type="radio" name="size" value="30">30 см
+          <label class="modal-pizza__label" for="30"></label>
+          <input class="modal-pizza__radio" id="35" type="radio" name="size" value="35">35 см
+          <label class="modal-pizza__label" for="35"></label>
+        </fieldset>
+        <button class="modal-pizza__add-to-cart">
+          В корзину
+        </button>
+      </form>
+      <button class="modal__close">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14.8333" y="4" width="0.851136" height="15.3204" transform="rotate(45 14.8333 4)" fill="#C1AB91" />
+          <rect x="4" y="4.60184" width="0.851136" height="15.3204" transform="rotate(-45 4 4.60184)" fill="#C1AB91" />
+        </svg>
+      </button>
+    </div>
+  </div>
 </body>
 
 </html>

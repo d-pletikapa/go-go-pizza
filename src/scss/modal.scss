@@ -1,0 +1,34 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba($dark, 0.89);
+  z-index: 45;
+  cursor: pointer;
+
+  overflow-y: auto;
+  padding: 30px 14px;
+  display: flex;
+  display: none;
+}
+
+.modal__main {
+  position: relative;
+  cursor: default;
+  padding: 16px;
+  margin: auto;
+  background: var(--white);
+  border-radius: 32px;
+  @include media-query('tablet') {
+    padding: 24px;
+  }
+}
+
+.modal-pizza__main {
+  max-width: 368px;
+}
+
+.modal__close{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
