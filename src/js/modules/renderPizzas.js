@@ -1,4 +1,10 @@
 import { getData } from "./getData.js";
+const btnReset = document.createElement('button');
+btnReset.classList.add('pizza__reset-toppings');
+btnReset.textContent = 'Сбросить фильтр';
+btnReset.type = 'reset';
+btnReset.setAttribute('form', 'toppings');
+
 
 const createCard = (data) => {
   const card = document.createElement('article');
@@ -29,17 +35,30 @@ const createCard = (data) => {
   return card;
 }
 export const renderPizzas = async (toppings) => {
-  const pizzas = await getData(`${toppings ? 
-    `products?toppings=${toppings}` : 'products'}`);
-  const pizzaList = document.querySelector('.pizza__list');
-  pizzaList.textContent = '';
+  const pizzas = await getData(`${toppings ? `products?toppings=${toppings}`:'products'}`);
 
-  const pizzaItems = pizzas.map((data) => {
-    const item = document.createElement('li');
-    item.classList.add('pizza__item');
-    const card = createCard(data);
-    item.append(card);
-    return item;
-  });
-  pizzaList.append(...pizzaItems);
+  const pizzaTitle = document.querySelector('.pizza__title');
+  const pizzaList = document.querySelector('.pizza__list');
+  pizzaList.textContent = ''; // очищаем перед новым рендером
+
+  if (pizzas.length) {
+    pizzaTitle.textContent = 'Пицца';
+    btnReset.remove();
+    const pizzaItems = pizzas.map((data) => {
+      const item = document.createElement('li');
+      item.classList.add('pizza__item');
+      const card = createCard(data);
+      item.append(card);
+      return item;
+    });
+    pizzaList.append(...pizzaItems);
+  } else {
+    pizzaTitle.textContent = 'Такой пиццы у нас нет :(';
+    pizzaTitle.after(btnReset);
+  }
 };
+
+btnReset.addEventListener('click', () => {
+  renderPizzas();
+  document.querySelector('.toppings__reset').remove();
+} );

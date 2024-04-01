@@ -7,6 +7,8 @@ export default defineConfig({
     outDir: '../dist', // Указываем директорию для сборки
  },
  server: {
-    open: true, // Автоматически открывать браузер при запуске сервера
- },
+   open: {
+      browser: process.env.BROWSER ? { browser: process.env.BROWSER } : null,
+   },
+},
 });
