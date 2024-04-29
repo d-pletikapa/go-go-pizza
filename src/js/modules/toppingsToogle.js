@@ -9,7 +9,7 @@ export const toppingsToogle = () => {
       toppingsList.style.maxHeight = toppingsList.scrollHeight + 'px';
     } else {
       toppingsList.classList.remove('toppings__list--show');
-      toppingsList.style.maxHeight = null;
+      toppingsList.style.maxHeight = `0px`;
       setTimeout(() => {
         toppingsButton.classList.remove('toppings__button--active');
       }, 100);

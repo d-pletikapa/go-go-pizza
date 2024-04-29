@@ -1,4 +1,5 @@
 import { getData } from "./getData.js";
+import { textTransform } from "./helpers.js";
 import { renderPizzas } from "./renderPizzas.js";
 
 export const renderToppings = async () => {
@@ -11,7 +12,7 @@ export const renderToppings = async () => {
     toppingsItem.className = 'toppings__item';
     toppingsItem.innerHTML = `
     <input type="checkbox" id="${enName}" class="toppings__checkbox" name="topping" value="${enName}">
-    <label for="${enName}" class="toppings__label">${ruToppings[index][0].toUpperCase()}${ruToppings[index].slice(1).toLowerCase()}</label>
+    <label for="${enName}" class="toppings__label">${textTransform(ruToppings[index])}</label>
     `;
     return toppingsItem;
   });

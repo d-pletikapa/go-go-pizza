@@ -1,3 +1,7 @@
+@import '__normalize.scss';
+@import '__fonts.scss';
+@import '__styles.scss';
+
 .modal {
   position: fixed;
   inset: 0;
@@ -9,26 +13,21 @@
   padding: 30px 14px;
   display: flex;
   display: none;
-}
 
-.modal__main {
-  position: relative;
-  cursor: default;
-  padding: 16px;
-  margin: auto;
-  background: var(--white);
-  border-radius: 32px;
-  @include media-query('tablet') {
-    padding: 24px;
+  &__main {
+    position: relative;
+    cursor: default;
+    margin: auto;
+    background: var(--white);
+    border-radius: 32px;
+    @include media-query('tablet') {
+      padding: 24px;
+    }
   }
-}
-
-.modal-pizza__main {
-  max-width: 368px;
-}
-
-.modal__close{
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
 }

@@ -1,3 +1,49 @@
-@import '__normalize.scss';
-@import '__fonts.scss';
-@import '__styles.scss';
+@import "__normalize.scss";
+@import "__fonts.scss";
+@import "__styles.scss";
+
+.footer {
+  border-top: 1px solid var(--beige);
+  padding: 32px 0 24px;
+  @include media-query('tablet') {
+    padding: 64px 0 40px;
+  }
+  & .container {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  &__logo {
+    margin-bottom: 32px;
+    @include media-query("tablet") {
+      width: 400px;
+      margin-bottom: 64px;
+    }
+  }
+  &__copyright {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--beige);
+    margin-bottom: 16px;
+    @include media-query('tablet') {
+      font-size: 20px;
+    }
+  }
+  &__developers {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--beige);
+    @include media-query('tablet') {
+      font-size: 20px;
+    }
+  }
+  &__developer {
+    font-size: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    &:hover {
+      color: var(--orange);
+    }
+  }
+
+}

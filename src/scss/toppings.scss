@@ -1,139 +1,141 @@
-@import '__normalize.scss';
-@import '__fonts.scss';
-@import '__styles.scss';
+@import "__normalize.scss";
+@import "__fonts.scss";
+@import "__styles.scss";
 
 .toppings {
   padding: 24px 0;
 
-  @include media-query('tablet') {
+  @include media-query("tablet") {
     padding-top: 32px 0;
   }
-}
+  &__title {
+    position: fixed;
+    transform: scale(0);
 
-.toppings__title {
-  position: fixed;
-  transform: scale(0);
-
-  @include media-query('laptop') {
-    position: static;
-    transform: none;
+    @include media-query("laptop") {
+      position: static;
+      transform: none;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 1.4;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+  }
+  &__button {
     font-weight: 600;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.4;
     color: var(--dark);
+    display: flex;
+    gap: 4px;
     margin-bottom: 16px;
+    align-items: center;
 
+    @include media-query("tablet") {
+      font-size: 24px;
+    }
+
+    @include media-query("laptop") {
+      display: none;
+    }
   }
-}
-
-.toppings__button {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 1.4;
-  color: var(--dark);
-  display: flex;
-  gap: 4px;
-  align-items: center;
-
-  @include media-query('tablet') {
-    font-size: 24px;
+  &__arrow {
+    transition: transform 0.3s ease;
   }
 
-  @include media-query('laptop') {
-    display: none;
+  &--active &__arrow {
+    transform: scaleY(-1);
   }
-}
 
-.toppings__button--active .toppings__arrow {
-  transform: scaleY(-1);
-}
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 8px;
+    transform: scaleY(0);
+    visibility: hidden;
+    overflow: hidden;
+    max-height: 0px;
+    transition:
+      transform 0.3s ease,
+      visibility 0.3s ease,
+      max-height 0.3s ease;
 
-.toppings__arrow {
-  transition: transform .3s ease;
-}
-
-
-.toppings__list {
-  display: flex;
-  flex-flow: row wrap;
-  gap: 8px;
-  transform: scaleY(0);
-  visibility: hidden;
-  overflow: hidden;
-  transition: transform .3s ease, visibility .3s ease;
- 
-  @include media-query('laptop') {
-     transform: scaleY(1);
-     visibility: visible;
-     max-height: none;
+      &--show {
+        transform: scaleY(1); // Ensure the element is fully visible
+        visibility: visible; // Make sure the element is visible
+        transition:
+          transform 0.3s ease,
+          visibility 0.3s ease,
+          max-height 0.3s ease;
+      }
+  
+    @include media-query("laptop") {
+      transform: scaleY(1);
+      visibility: visible;
+      max-height: none;
+    }
   }
- }
- 
- .toppings__list--show {
-  transform: scaleY(1); // Ensure the element is fully visible
-  visibility: visible; // Make sure the element is visible
-  transition: transform .3s ease, visibility .3s ease;
- }
 
-.toppings__label {
-  display: block;
-  border-radius: 32px;
-  padding: 8px 24px;
-  // width: max-content;
-  background: var(--white);
-  font-size: 14px;
-  color: var(--beige);
-  border: 1px solid transparent;
-  cursor: pointer;
-
-  &:hover {
-    color: var(--orange);
+  &__label {
+    display: block;
+    border-radius: 32px;
+    padding: 8px 24px;
+    // width: max-content;
+    background: var(--white);
+    font-size: 14px;
+    color: var(--beige);
+    border: 1px solid transparent;
+    cursor: pointer;
+  
+    &:hover {
+      color: var(--orange);
+    }
+    @include media-query("tablet") {
+      font-size: 20px;
+    }
   }
-  @include media-query('tablet') {
+
+  &__checkbox {
+    position: absolute;
+    appearance: none;
+
+    &:checked + .toppings__label {
+      background: var(--orange);
+      color: var(--light);
+      &:hover {
+        color: var(--white);
+      }
+    }
+    &:focus-visible + .toppings__label {
+      background: var(--white);
+      border-color: #b66200;
+      color: var(--orange);
+    }
+  }
+  &__reset {
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    padding: 8px 24px;
+    background: var(--white);
     font-size: 20px;
-  }
-}
-
-.toppings__checkbox {
-  position: absolute;
-  appearance: none;
-}
-
-.toppings__checkbox:checked+.toppings__label {
-  background: var(--orange);
-  color: var(--light);
-  &:hover {
-    color: var(--dark);
-  }
-}
-
-.toppings__checkbox:focus-visible+.toppings__label {
-  background: var(--white);
-  border-color: #b66200;
-  color: var(--orange);
-}
-
-.toppings__reset {
-  outline: none;
-  border: 1px solid transparent;
-  border-radius: 32px;
-  padding: 8px 24px;
-  background: var(--white);
-  font-size: 20px;
-  line-height: 1.4;
-  color: var(--orange);
-  &:hover {
-    background: var(--orange-light);
-    color: var(--white);
-  }
-  &:focus-visible {
-    border: 1px solid #b66200;
-    background: var(--white);
+    line-height: 1.4;
     color: var(--orange);
+    &:hover {
+      background: var(--orange-light);
+      color: var(--white);
+    }
+    &:focus-visible {
+      border: 1px solid #b66200;
+      background: var(--white);
+      color: var(--orange);
+    }
+    &:active {
+      opacity: 0.5;
+      background: var(--white);
+      color: var(--orange);
+    }
   }
-  &:active {
-    opacity: 0.5;
-    background: var(--white);
-    color: var(--orange);
-  }
+  
 }

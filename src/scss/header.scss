@@ -4,34 +4,36 @@
 
 
 .header {
+  width: 100vw;
   position: absolute;
   top: 24px;
   left: 0;
   right: 0;
   z-index: 5;
   @include media-query('tablet') {
-    top: 40px
+    top: 40px;
+  }
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  &__logo {
+    width: 120px;
+    @include media-query('tablet') {
+      width: 164px;
+    }
+  }
+  
+  &__cart {
+    color: var(--dark);
+    &:hover {
+      color: var(--orange);
+    }
   }
 }
 
-.header__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-}
 
-.header__logo {
-  width: 120px;
-  @include media-query('tablet') {
-    width: 164px;
-  }
-}
-
-.header__cart {
-  color: var(--dark);
-  &:hover {
-    color: var(--orange);
-  }
-}
 

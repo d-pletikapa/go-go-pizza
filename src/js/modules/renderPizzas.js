@@ -1,4 +1,8 @@
 import { getData } from "./getData.js";
+import { textTransform } from "./helpers.js";
+import { modalController } from "./modalController.js";
+import { renderModalPizza } from "./renderModalPizza.js";
+
 const btnReset = document.createElement('button');
 btnReset.classList.add('pizza__reset-toppings');
 btnReset.textContent = 'Сбросить фильтр';
@@ -13,11 +17,11 @@ const createCard = (data) => {
   card.innerHTML = `
   <picture>
   <source srcset="${data.images[1]}" type="image/webp">
-  <img class="card__img" src="${data.images[0]}" alt="${data.name.ru[0].toUpperCase() + data.name.ru.slice(1).toLowerCase()}">
+  <img class="card__img" src="${data.images[0]}" alt="${textTransform(data.name.ru)}">
   </picture>
   
   <div class="card__content">
-    <h3 class="card__title">${data.name['ru'][0].toUpperCase() + data.name.ru.slice(1).toLowerCase()}</h3>
+    <h3 class="card__title">${textTransform(data.name['ru'])}</h3>
     <p class="card__info">
       <span class="card__price">
       ${data.price['25cm']} ₽
@@ -35,7 +39,7 @@ const createCard = (data) => {
   return card;
 }
 export const renderPizzas = async (toppings) => {
-  const pizzas = await getData(`${toppings ? `products?toppings=${toppings}`:'products'}`);
+  const pizzas = await getData(`${toppings ? `products?toppings=${toppings}` : 'products'}`);
 
   const pizzaTitle = document.querySelector('.pizza__title');
   const pizzaList = document.querySelector('.pizza__list');
@@ -52,6 +56,17 @@ export const renderPizzas = async (toppings) => {
       return item;
     });
     pizzaList.append(...pizzaItems);
+    modalController({
+      modal: '.modal-pizza',
+      btnOpen: '.card__add-to-cart',
+      btnClose: '.modal__close',
+      async cbOpen(btnOpen) {
+        const pizza = await getData(`${
+          btnOpen.dataset.id ? `products/${btnOpen.dataset.id}` : console.error('Eror no pizza id in request', error)
+        }`);
+        renderModalPizza(pizza);
+      },
+    });
   } else {
     pizzaTitle.textContent = 'Такой пиццы у нас нет :(';
     pizzaTitle.after(btnReset);
@@ -61,4 +76,4 @@ export const renderPizzas = async (toppings) => {
 btnReset.addEventListener('click', () => {
   renderPizzas();
   document.querySelector('.toppings__reset').remove();
-} );
+});

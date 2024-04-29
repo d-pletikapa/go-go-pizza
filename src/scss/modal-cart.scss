@@ -1,0 +1,216 @@
+@import "__normalize.scss";
+@import "__fonts.scss";
+@import "__styles.scss";
+
+.modal-cart {
+  &__main {
+    max-width: 292px;
+    width: 100%;
+    padding: 16px;
+    @include media-query("tablet") {
+      max-width: 724px;
+      padding: 24px 24px 32px;
+    }
+  }
+
+  &__block {
+    display: block;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--dark);
+    margin-bottom: 20px;
+    &-pizza {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--dark);
+      margin-bottom: 4px;
+      @include media-query("tablet") {
+        font-size: 16px;
+      }
+    }
+    @include media-query("tablet") {
+      font-size: 44px;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    @include media-query("tablet") {
+      gap: 8px;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__image {
+    width: 63px;
+    @include media-query("tablet") {
+      width: 63px;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+
+
+  &__info-pizza {
+    display: flex;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--beige);
+    @include media-query("tablet") {
+      font-size: 16px;
+    }
+  }
+
+  &__summary {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--dark);
+    &-pizza {
+      color: var(--dark);
+    }
+    @include media-query("tablet") {
+      font-size: 20px;
+    }
+  }
+
+  &__btn {
+    border-radius: 32px;
+    padding: 8px 24px;
+    background: var(--orange);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--white);
+    &:disabled {
+      opacity: 0.6;
+    }
+    @include media-query("tablet") {
+      font-size: 20px;
+    }
+  }
+
+
+  &__delivery {
+    display: none;
+  }
+
+  &__form {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    @include media-query("tablet") {
+      padding-bottom: 48px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-text {
+    @include media-query('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    }
+    @include media-query("tablet") {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background: var(--light);
+    padding: 8px 24px;
+    border-radius: 32px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    line-height: 1.4;
+    &-address {
+      @include media-query('tablet') {
+        grid-column: span 2;
+      }
+    }
+    &:placeholder {
+      color: var(--beige);
+    }
+  
+    &:focus {
+      border-color: #b66200;
+    }
+    @include media-query("tablet") {
+      font-size: 16px;
+    }
+  }
+
+  &__legend {
+    margin-bottom: 8px;
+    @include media-query("tablet") {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__payment {
+    display: flex;
+    gap: 24px;
+    &-label{
+      font-size: 12px;
+      line-height: 1.4;
+      @include media-query('tablet') {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    gap: 4px;
+    @include media-query('tablet') {
+      gap: 8px;
+    }
+  }
+
+  &__prev {
+    background: var(--light);
+    color: var(--orange);
+  }
+}
